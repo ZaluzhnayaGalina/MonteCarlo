@@ -18,7 +18,7 @@ int main()
     default_random_engine generator (seed);
     uniform_real_distribution<double> udis(0,1);
     uniform_real_distribution<double> angle_dis(-M_PI/2, 3*M_PI/2);
-    int M=10000;
+    int M=100000;
     for(int i=1; i<=M; i++)
     {
 
@@ -32,7 +32,7 @@ int main()
             {
                 i--;
                 break;
-            }
+            } //1
             x0_s = GenerateExponential(sigma_a + sigma_s, udis(generator));
             if (x0+ x0_s*cos(alpha)<0)
                 continue;
@@ -42,7 +42,7 @@ int main()
                 event = true;
                 cout<<"Passed, N="<<N<<endl;
                 break;
-            }
+            }//2
             else
             {
                 p_s = udis(generator);
@@ -50,13 +50,13 @@ int main()
                 {
                     cout<<"Eaten"<<endl;
                     event = true;
-                    break;
+                    break;//3
                 }
                 else //нейтрон рассеялся
                 {
                     x0=x0_s*cos(alpha)+x0;
                     begin = false;
-                }
+                }//4
 
               }
 
@@ -65,5 +65,4 @@ int main()
     cout<<N/M<<endl;
     return 0;
     system("pause");
-
 }
