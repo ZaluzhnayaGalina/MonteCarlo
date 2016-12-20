@@ -38,3 +38,12 @@ int main()
 				break;
 			}
 		}
+ 		else
+    	        {
+        	        p_s = udis(generator);
+                	if (p_s>sigma_s/(sigma_s+sigma_a)) // нейтрон поглотился
+               		 {
+               		     cout<<"Eaten"<<endl;
+               	    	     event = true;
+                   	     break;
+                	}
