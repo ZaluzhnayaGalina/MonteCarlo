@@ -47,3 +47,8 @@ int main()
                	    	     event = true;
                    	     break;
                 	}
+			else //нейтрон рассеялся
+                {
+                    x0=x0_s*cos(alpha)+x0;//задаем новую начальную координату
+                    begin = false;
+                }
