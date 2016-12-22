@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include<chrono>
 #include<random>
+#include<conio.h>
 #define M_PI 3.14159265358979323846
 
 using namespace std;
@@ -11,7 +12,14 @@ double GenerateExponential(double sigma, double p)
 }
 int main()
 {
+
     double L = 1, sigma_s=5, sigma_a=5, N=0, alpha, x0, x0_s, p_s;
+    cout<<"Input L: ";
+    cin>>L;
+    cout<<"Input scatter section: ";
+    cin>>sigma_s;
+    cout<<"Input absorb section: ";
+    cin>>sigma_a;
     bool event, begin;
     //setlocale(LC_ALL, "Russian");
     unsigned seed = chrono::system_clock::now().time_since_epoch().count();
@@ -62,7 +70,14 @@ int main()
 
         }
     }
-    cout<<N/M<<endl;
+    if (N==0)
+    {
+        cout<<M<<endl;
+        getch();
+        return 0;
+    }
+    cout<<M/N<<endl;
+    getch();
     return 0;
-    system("pause");
+
 }
