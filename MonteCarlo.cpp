@@ -12,7 +12,7 @@ double GenerateExponential(double sigma, double p) //генерирует СВ из экспоненци
 int main()
 {
 	default_random_engine generator (seed);
-    uniform_real_distribution<double> udis(0,1); // функция для генерации СВ из равномерного распределения
+    	uniform_real_distribution<double> udis(0,1); // функция для генерации СВ из равномерного распределения
 	for(int i=1; i<=M; i++)
     {
 
@@ -37,18 +37,25 @@ int main()
 				cout << "Passed, N=" << N << endl;
 				break;
 			}
-		}
- 		else
-    	        {
-        	        p_s = udis(generator);
-                	if (p_s>sigma_s/(sigma_s+sigma_a)) // нейтрон поглотился
+		
+ 			else
+    	       		 {
+        	    	    p_s = udis(generator);
+                	    if (p_s>sigma_s/(sigma_s+sigma_a)) // нейтрон поглотился
                		 {
                		     cout<<"Eaten"<<endl;
                	    	     event = true;
                    	     break;
-                	}
-			else //нейтрон рассеялся
-                {
-                    x0=x0_s*cos(alpha)+x0;//задаем новую начальную координату
-                    begin = false;
-                }
+                	 }
+			     else //нейтрон рассеялся
+             		   {
+               		     x0=x0_s*cos(alpha)+x0;//задаем новую начальную координату
+                 	     begin = false;
+                	   }
+			  }
+		}
+		}
+		cout<<M/N<<endl;
+		return 0;
+		system("pause");
+}

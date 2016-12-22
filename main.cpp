@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include<chrono>
 #include<random>
 #define M_PI 3.14159265358979323846
@@ -32,7 +32,7 @@ int main()
             {
                 i--;
                 break;
-            } //1
+            } 
             x0_s = GenerateExponential(sigma_a + sigma_s, udis(generator));
             if (x0+ x0_s*cos(alpha)<0)
                 continue;
@@ -42,7 +42,7 @@ int main()
                 event = true;
                 cout<<"Passed, N="<<N<<endl;
                 break;
-            }//2
+            }
             else
             {
                 p_s = udis(generator);
@@ -50,13 +50,13 @@ int main()
                 {
                     cout<<"Eaten"<<endl;
                     event = true;
-                    break;//3
+                    break;
                 }
                 else //нейтрон рассеялся
                 {
                     x0=x0_s*cos(alpha)+x0;
                     begin = false;
-                }//4
+                }
 
               }
 
